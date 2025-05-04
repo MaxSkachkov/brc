@@ -2,44 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROBOTS COMPANY</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="centered">
-    <h1>ROBOTS COMPANY</h1>
-  </div>
-  <div class="cursor"></div>
+
+  <h1>ROBOTS COMPANY</h1>
+  <div class="cursor-ring"></div>
 
   <script>
-const circle = document.createElement('div');
-circle.classList.add('cursor-circle');
-document.body.appendChild(circle);
+    const ring = document.querySelector('.cursor-ring');
 
-function moveCircle(x, y) {
-  circle.style.left = `${x}px`;
-  circle.style.top = `${y}px`;
-}
+    function updateRing(x, y) {
+      ring.style.left = x + 'px';
+      ring.style.top = y + 'px';
+      ring.style.display = 'block';
+    }
 
-document.addEventListener('mousemove', (e) => {
-  moveCircle(e.clientX, e.clientY);
-});
+    document.addEventListener('mousemove', (e) => {
+      updateRing(e.clientX, e.clientY);
+    });
 
-document.addEventListener('touchmove', (e) => {
-  if (e.touches.length > 0) {
-    const touch = e.touches[0];
-    moveCircle(touch.clientX, touch.clientY);
-  }
-});
+    document.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        updateRing(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    });
 
-document.addEventListener('touchstart', (e) => {
-  if (e.touches.length > 0) {
-    const touch = e.touches[0];
-    moveCircle(touch.clientX, touch.clientY);
-  }
-});
-</script>
-  
+    document.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        updateRing(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    });
+  </script>
+
 </body>
 </html>
