@@ -13,11 +13,32 @@
   <div class="cursor"></div>
 
   <script>
-  const cursor = document.querySelector('.cursor');
-  window.addEventListener('mousemove', e => {
-    cursor.style.top = `${e.clientY}px`;
-    cursor.style.left = `${e.clientX}px`;
-  });
+const circle = document.createElement('div');
+circle.classList.add('cursor-circle');
+document.body.appendChild(circle);
+
+function moveCircle(x, y) {
+  circle.style.left = `${x}px`;
+  circle.style.top = `${y}px`;
+}
+
+document.addEventListener('mousemove', (e) => {
+  moveCircle(e.clientX, e.clientY);
+});
+
+document.addEventListener('touchmove', (e) => {
+  if (e.touches.length > 0) {
+    const touch = e.touches[0];
+    moveCircle(touch.clientX, touch.clientY);
+  }
+});
+
+document.addEventListener('touchstart', (e) => {
+  if (e.touches.length > 0) {
+    const touch = e.touches[0];
+    moveCircle(touch.clientX, touch.clientY);
+  }
+});
 </script>
   
 </body>
