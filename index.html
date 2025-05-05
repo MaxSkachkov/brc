@@ -1,41 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ROBOTS COMPANY</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robots Company</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1>ROBOTS COMPANY</h1>
+    <div class="cursor"></div>
 
-  <h1>ROBOTS COMPANY</h1>
-  <div class="cursor-ring"></div>
+    <script>
+        const cursor = document.querySelector(".cursor");
 
-  <script>
-    const ring = document.querySelector('.cursor-ring');
+        function moveCursor(x, y) {
+            cursor.style.left = `${x}px`;
+            cursor.style.top = `${y}px`;
+        }
 
-    function updateRing(x, y) {
-      ring.style.left = x + 'px';
-      ring.style.top = y + 'px';
-      ring.style.display = 'block';
-    }
+        document.addEventListener("mousemove", (e) => {
+            moveCursor(e.clientX, e.clientY);
+        });
 
-    document.addEventListener('mousemove', (e) => {
-      updateRing(e.clientX, e.clientY);
-    });
-
-    document.addEventListener('touchstart', (e) => {
-      if (e.touches.length > 0) {
-        updateRing(e.touches[0].clientX, e.touches[0].clientY);
-      }
-    });
-
-    document.addEventListener('touchmove', (e) => {
-      if (e.touches.length > 0) {
-        updateRing(e.touches[0].clientX, e.touches[0].clientY);
-      }
-    });
-  </script>
-
+        document.addEventListener("touchmove", (e) => {
+            const touch = e.touches[0];
+            moveCursor(touch.clientX, touch.clientY);
+        });
+    </script>
 </body>
 </html>
