@@ -1,35 +1,45 @@
+/* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    cursor: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
 }
 
 body {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    position: relative;
-    overflow: hidden;
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+/* Центрирование заголовка */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    color: black;
+  font-size: 2.5rem;
+  color: #000;
+  letter-spacing: 2px;
 }
 
+/* Кастомный курсор */
 .cursor {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    position: absolute;
-    pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.8);
-    mix-blend-mode: difference;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 }
