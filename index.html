@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robots Company</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ROBOTS COMPANY</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="centered">
     <h1>ROBOTS COMPANY</h1>
-    <div class="cursor"></div>
+  </div>
+  <div class="cursor"></div>
 
     <script>
-        const cursor = document.querySelector(".cursor");
+  const cursor = document.querySelector('.cursor');
+  window.addEventListener('mousemove', e => {
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+  });
+</script>
 
-        function moveCursor(x, y) {
-            cursor.style.left = `${x}px`;
-            cursor.style.top = `${y}px`;
-        }
-
-        document.addEventListener("mousemove", (e) => {
-            moveCursor(e.clientX, e.clientY);
-        });
-
-        document.addEventListener("touchmove", (e) => {
-            const touch = e.touches[0];
-            moveCursor(touch.clientX, touch.clientY);
-        });
-    </script>
 </body>
 </html>
